@@ -1,11 +1,20 @@
 <h1>HOME PAGE</h1>
 
+
+<% if user_signed_in? %>
+  <%= link_to "LOGOUT", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "LOGIN", new_user_session_path %>
+  <%= link_to "CREATE ACCOUNT", new_user_registration_path %>
+<% end %>
+
 <div class="columns">
+  <br><br>
   <%= link_to 'CREATE POST', new_post_path %>
   <br><br>
 </div>
 
-<% @get_post.each do |form| %>
+<% @post.each do |form| %>
   <%= form.title %><br>
   <%= form.body %><br>
 

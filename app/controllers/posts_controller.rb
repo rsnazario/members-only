@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
+
   def index
-    @get_post = Post.all.order('created_at DESC')
+    @post = Post.all.order('created_at DESC')
   end
 
   def show
@@ -9,13 +12,13 @@ class PostsController < ApplicationController
 
   # CREATE POST
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     @post.save
-    redirect_to root_path
+    redirect_to posts_path
   end
 
   # EDIT POST
@@ -42,7 +45,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body, :user_id, :user_id=>1)
   end
 
-  # def set_post
-  #   @post = Post.find(params[:id])
-  # end
+  def set_post
+    @post = current_user.posts.find(params[:id])
+  end
 end
