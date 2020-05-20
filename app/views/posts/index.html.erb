@@ -15,6 +15,7 @@
 </div>
 
 <% @post.each do |form| %>
+  <%= current_user.username %><br>
   <%= form.title %><br>
   <%= form.body %><br>
 
