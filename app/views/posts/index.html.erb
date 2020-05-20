@@ -1,27 +1,32 @@
-<h1>HOME PAGE</h1>
+<h1>CLUB HOUSE</h1>
 
 <% if user_signed_in? %>
-  <%= link_to "LOGOUT", destroy_user_session_path, method: :delete %>
+  <%= link_to "LOGOUT", destroy_user_session_path, method: :delete %> 
 <% else %>
-  <%= link_to "LOGIN", new_user_session_path %>
+  <%= link_to "LOGIN", new_user_session_path %> 
   <%= link_to "CREATE ACCOUNT", new_user_registration_path %>
 <% end %>
 
 <div class="columns">
-  <br><br>
-  <%= link_to 'CREATE POST', new_post_path %>
-  <br><br>
+  <br>
+  <% if user_signed_in? %>
+    <%= link_to 'CREATE POST', new_post_path %> <br/>
+  <% end %>
 </div>
 
 <% @post.each do |form| %>
-  <br/><br/>
+  <br/>
   <% if user_signed_in? %>
   <strong><%= form.user.username %></strong> <br/>
+  <% else %>
+  <strong>Anonymous</strong> <br/>
   <% end %>
+
   <%= form.title %><br>
   <%= form.body %><br>
+  
   <% if form.user == current_user %>
-    <%= link_to 'Edit', edit_post_path(form) %><br>
+    <%= link_to 'Edit', edit_post_path(form) %>
     <%= link_to 'Delete', post_path(form), method: :delete %><br>
   <% end %>
 <% end %>

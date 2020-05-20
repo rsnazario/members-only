@@ -41,8 +41,9 @@ class PostsController < ApplicationController
 
   # HELPERS
   private
+
   def post_params
-    params.require(:post).permit(:title, :body, :user_id, :user_id=>1)
+    params.require(:post).permit(:title, :body, :user_id, user_id: 1)
   end
 
   def set_post
