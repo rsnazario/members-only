@@ -1,0 +1,10 @@
+<%= form_for(@post) do |f| %>
+  
+  <%= f.label(:title, 'Story Title:') %> <br/>
+  <%= f.text_field(:title, required: true) %> <br/><br/>
+  <%= f.label(:body, 'Gossip here') %> <br/>
+  <%= f.text_area(:body, placeholder:'Place your story here...') %> <br/>
+  <%= f.hidden_field( :user_id, {:value=>1}) %>
+  <%= f.submit('Post Story') %>
+
+<% end %>

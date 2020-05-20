@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @get_posts = Post.all.order('created_at DESC')
+    @post = Post.all.order('created_at DESC')
   end
 
   def show
@@ -15,18 +15,20 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.save
-    redirect_to post_path(@post)
+    # redirect_to post_path(@post)
+    redirect_to root_path
   end
 
   # EDIT POST
   def edit
-    @article = Article.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to post_path(@post)
+    # redirect_to post_path(@post)
+    redirect_to root_path
   end
 
   # DELETE POST
@@ -39,7 +41,7 @@ class PostsController < ApplicationController
   # HELPERS
   private
   def post_params
-    params.require(:post).permit(:title, :body, :user_id)
+    params.require(:post).permit(:title, :body, :user_id, :user_id=>1)
   end
 
   # def set_post

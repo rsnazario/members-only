@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
+gem 'bulma-rails', '~> 0.0.4.1'
 
 # cache
 gem 'turbolinks', '~> 5'
