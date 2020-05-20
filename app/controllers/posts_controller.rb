@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    # comes from devise helper
+    # comes from set_post
   end
 
   # CREATE POST
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   # EDIT POST
   def edit
-    # comes from devise helper
+    # comes from set_post
   end
 
   def update
