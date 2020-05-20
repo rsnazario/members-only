@@ -2,13 +2,13 @@
 
 <div class="columns">
   <%= link_to 'CREATE POST', new_post_path %>
+  <br><br>
 </div>
 
-<% @post.each do |p| %>
-  <br/>
-  <strong> <%= p.title %></strong> <br/>
-  <%= p.body %> <br/>
+<% @get_post.each do |form| %>
+  <%= form.title %><br>
+  <%= form.body %><br>
 
-  <%= link_to 'Edit Post', edit_post_path(p) %><br/>
-
+  <%= link_to 'Edit', edit_post_path(form) %><br>
+  <%= link_to 'Delete', post_path(form), method: :delete %><br>
 <% end %>

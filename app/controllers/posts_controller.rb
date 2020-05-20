@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all.order('created_at DESC')
+    @get_post = Post.all.order('created_at DESC')
   end
 
   def show
@@ -15,7 +15,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.save
-    # redirect_to post_path(@post)
     redirect_to root_path
   end
 
@@ -27,7 +26,6 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    # redirect_to post_path(@post)
     redirect_to root_path
   end
 
@@ -35,7 +33,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to post_path(@post)
+    redirect_to root_path
   end
 
   # HELPERS
