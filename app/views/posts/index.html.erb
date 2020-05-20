@@ -14,10 +14,14 @@
 </div>
 
 <% @post.each do |form| %>
-  <%= current_user.username %><br>
+  <br/><br/>
+  <% if user_signed_in? %>
+  <strong><%= form.user.username %></strong> <br/>
+  <% end %>
   <%= form.title %><br>
   <%= form.body %><br>
-
-  <%= link_to 'Edit', edit_post_path(form) %><br>
-  <%= link_to 'Delete', post_path(form), method: :delete %><br>
+  <% if form.user == current_user %>
+    <%= link_to 'Edit', edit_post_path(form) %><br>
+    <%= link_to 'Delete', post_path(form), method: :delete %><br>
+  <% end %>
 <% end %>
