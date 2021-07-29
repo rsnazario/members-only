@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # core
-ruby '~> 2.6'
+ruby '~> 2.7'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2'
 
