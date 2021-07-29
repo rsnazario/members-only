@@ -22,11 +22,11 @@ gem 'uglifier', '>= 1.3.0'
 # cache
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'turbolinks', '~> 5'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'selenium-webdriver'
-  gem 'sqlite3'
 
   # gem 'capybara', '>= 2.15'
   # gem 'chromedriver-helper'
