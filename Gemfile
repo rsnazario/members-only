@@ -22,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 # cache
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'turbolinks', '~> 5'
-gem 'sqlite3'
+gem 'pg'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -40,10 +40,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
-# group :production do
-#   gem 'pg'
-# end
 
 # Windows compatible
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
